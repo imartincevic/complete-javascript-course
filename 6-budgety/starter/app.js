@@ -166,7 +166,7 @@ const UIController = (function() {
 
             dec = numSplit[1];
 
-            return (type === 'exp' ? '-' : '+') + ' ' + int + '.' + dec;
+            return (type === 'expense' ? '-' : '+') + ' ' + int + '.' + dec;
     };
 
     const nodeListForEach = function(list, callback) {
@@ -226,11 +226,11 @@ const UIController = (function() {
 
         displayBudget: function(obj) {
             let type;
-            obj.budget > 0 ? type = 'inc' : type = 'exp';
+            obj.budget > 0 ? type = 'income' : type = 'expense';
 
             document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget, type);
-            document.querySelector(DOMstrings.incomeLabel).textContent = formatNumber(obj.totalInc, 'inc');
-            document.querySelector(DOMstrings.expensesLabel).textContent = formatNumber(obj.totalExp, 'exp');
+            document.querySelector(DOMstrings.incomeLabel).textContent = formatNumber(obj.totalInc, 'income');
+            document.querySelector(DOMstrings.expensesLabel).textContent = formatNumber(obj.totalExp, 'expense');
 
             if (obj.percentage > 0) {
                 document.querySelector(DOMstrings.percentageLabel).textContent = obj.percentage + '%';
