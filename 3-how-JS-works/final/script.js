@@ -76,8 +76,8 @@ function third() {
 /////////////////////////////////////
 // Lecture: The this keyword
 
-/*
-//console.log(this);
+
+console.log(this);
 
 calculateAge(1985);
 
@@ -92,7 +92,7 @@ var john = {
     calculateAge: function() {
         console.log(this);
         console.log(2016 - this.yearOfBirth);
-        
+
         function innerFunction() {
             console.log(this);
         }
@@ -110,4 +110,3 @@ var mike = {
 
 mike.calculateAge = john.calculateAge;
 mike.calculateAge();
-*/
