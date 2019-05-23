@@ -1,0 +1,7 @@
+.eslintignore
+.eslintrc.js
+2-JS-basics/.idea/
+*.iml
+github
+github.pub
+package.json
