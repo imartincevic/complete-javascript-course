@@ -48,14 +48,39 @@ const allStreets = [new Street('Ocean Avenue', 1999, 1.1, 4),
                     new Street('4th Street', 2015, 0.8),
                     new Street('Sunset Boulevard', 1982, 2.5, 5)];
 
-function reportParks(p) {
+function calculate(arr) {
+    const sum = arr.reduce((previous, current, index) => previous + current, 0);
 
+    return [sum, sum/arr.length];
+}
+
+function reportParks(p) {
+    console.log('----- PARKS REPORT -----');
+
+    // Density
+    p.forEach(element => element.treeDensity());
+
+    // Average age
+    const ages = p.map(el => new Date().getFullYear() - el.buildYear);
+    const [totalAge, avgAge] = calculate(ages);
+    console.log(`Our ${p.length} parks have an average of ${avgAge} years.`);
+
+    // Which park has more than 1000 trees
+    const i = p.map(el => el.numTrees).findIndex(el => el >= 1000);
+    console.log(`${p[i].name} has more than 1000 trees.`);
+    
 }
 
 function reportStreets(s) {
+    console.log('----- STREETS REPORT -----');
+    const [totalLength, avgLength] = calculate(s.map(el => el.length));
 
+    console.log(`Our ${s.length} streets have a total length of ${totalLength} km, with an average of ${avgLength} km`);
 
+    s.forEach(el => el.classifyStreet());
+    
 }
 
 reportParks(allParks);
 reportStreets(allStreets);
+
