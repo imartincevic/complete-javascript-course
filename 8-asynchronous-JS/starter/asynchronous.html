@@ -9,7 +9,20 @@
 <body>
     <h1>Asynchronous JavaScript</h1>
     <script>
-        
+        const second = () => {
+            setTimeout(() => {
+                console.log('Async hey');
+            }, 2000);
+            
+        }
+        const first = () => {
+            console.log('Hey there');
+            second();
+            console.log('The end');
+            
+        }
+
+        first();
     </script>
 </body>
 </html>
